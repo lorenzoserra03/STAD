@@ -1,0 +1,785 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "Added mass": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Massa aggiunta"
+          }
+        }
+      }
+    },
+    "Added mass (g)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Massa aggiunta (g)"
+          }
+        }
+      }
+    },
+    "Audio unit not available.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unità audio non disponibile."
+          }
+        }
+      }
+    },
+    "Automatic": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatico"
+          }
+        }
+      }
+    },
+    "Calibrate first with the 1 kΩ resistor (Calibration page).": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibra prima con il resistore da 1 kΩ (pagina Calibrazione)."
+          }
+        }
+      }
+    },
+    "Calibration": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrazione"
+          }
+        }
+      }
+    },
+    "Calibration: %@ Ω resistor…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrazione: resistore da %@ Ω…"
+          }
+        }
+      }
+    },
+    "Calibration: open leads…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrazione: puntali aperti…"
+          }
+        }
+      }
+    },
+    "Calibration: shorted leads…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calibrazione: puntali in corto…"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annulla"
+          }
+        }
+      }
+    },
+    "Cancelled": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Annullato"
+          }
+        }
+      }
+    },
+    "Connect": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collega"
+          }
+        }
+      }
+    },
+    "Connect the speaker to the leads and press Measure.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collega l'altoparlante ai puntali e premi Misura."
+          }
+        }
+      }
+    },
+    "Core Audio error %d.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Errore Core Audio %d."
+          }
+        }
+      }
+    },
+    "Curve": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Curva"
+          }
+        }
+      }
+    },
+    "DATS not found: connect it via USB and press Refresh.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DATS non trovato: collegalo via USB e premi Aggiorna."
+          }
+        }
+      }
+    },
+    "Device": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivo"
+          }
+        }
+      }
+    },
+    "Device connected": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dispositivo collegato"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completato"
+          }
+        }
+      }
+    },
+    "Driver data": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dati dell'altoparlante"
+          }
+        }
+      }
+    },
+    "Effective cone diameter (cm)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diametro effettivo del cono (cm)"
+          }
+        }
+      }
+    },
+    "Export .zma": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esporta .zma"
+          }
+        }
+      }
+    },
+    "For Vas, Mms, Cms and Bl: measure in free air, then attach a known mass to the cone (roughly the moving mass) and measure again.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Per Vas, Mms, Cms e Bl: misura in aria libera, poi fissa al cono una massa nota (circa la massa mobile) e ripeti la misura."
+          }
+        }
+      }
+    },
+    "Free air": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aria libera"
+          }
+        }
+      }
+    },
+    "Frequency": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequenza"
+          }
+        }
+      }
+    },
+    "Generator": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Generatore"
+          }
+        }
+      }
+    },
+    "Hz": {
+      "shouldTranslate": false
+    },
+    "Impedance": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impedenza"
+          }
+        }
+      }
+    },
+    "Input": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingresso"
+          }
+        }
+      }
+    },
+    "Input close to clipping: lower the level.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingresso vicino alla saturazione: riduci il livello."
+          }
+        }
+      }
+    },
+    "Inputs": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingressi"
+          }
+        }
+      }
+    },
+    "Internal reference resistor": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resistore di riferimento interno"
+          }
+        }
+      }
+    },
+    "Lead resistance": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resistenza dei puntali"
+          }
+        }
+      }
+    },
+    "Leads on the calibration resistor.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puntali sul resistore di calibrazione."
+          }
+        }
+      }
+    },
+    "Leads open, not connected to anything.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puntali aperti, non collegati a nulla."
+          }
+        }
+      }
+    },
+    "Leads shorted together (optional, measures the lead resistance).": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puntali in corto tra loro (facoltativo, misura la resistenza dei cavi)."
+          }
+        }
+      }
+    },
+    "Left": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinistro"
+          }
+        }
+      }
+    },
+    "Level": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livello"
+          }
+        }
+      }
+    },
+    "Load channel": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canale del carico"
+          }
+        }
+      }
+    },
+    "Measure": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura"
+          }
+        }
+      }
+    },
+    "Measure in free air": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura in aria libera"
+          }
+        }
+      }
+    },
+    "Measure with added mass": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura con massa aggiunta"
+          }
+        }
+      }
+    },
+    "Measurement": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura"
+          }
+        }
+      }
+    },
+    "Measuring impedance…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura impedenza…"
+          }
+        }
+      }
+    },
+    "Measuring with added mass…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Misura con massa aggiunta…"
+          }
+        }
+      }
+    },
+    "No measurement": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuna misura"
+          }
+        }
+      }
+    },
+    "No resonance found in the curve.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Risonanza non trovata nella curva."
+          }
+        }
+      }
+    },
+    "Not calibrated": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Non calibrato"
+          }
+        }
+      }
+    },
+    "Output": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uscita"
+          }
+        }
+      }
+    },
+    "Output level": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Livello di uscita"
+          }
+        }
+      }
+    },
+    "Output on": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uscita attiva"
+          }
+        }
+      }
+    },
+    "Phase (°)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fase (°)"
+          }
+        }
+      }
+    },
+    "Points per octave": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Punti per ottava"
+          }
+        }
+      }
+    },
+    "Re measured with a multimeter (Ω, optional)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Re misurata con multimetro (Ω, facoltativa)"
+          }
+        }
+      }
+    },
+    "Ready": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pronto"
+          }
+        }
+      }
+    },
+    "Refining around resonance…": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Affinamento intorno alla risonanza…"
+          }
+        }
+      }
+    },
+    "Refresh": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiorna"
+          }
+        }
+      }
+    },
+    "Reset calibration": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Azzera calibrazione"
+          }
+        }
+      }
+    },
+    "Resistor not detected: check the connections.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resistore non rilevato: controlla i collegamenti."
+          }
+        }
+      }
+    },
+    "Result": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Risultato"
+          }
+        }
+      }
+    },
+    "Right": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destro"
+          }
+        }
+      }
+    },
+    "Run": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esegui"
+          }
+        }
+      }
+    },
+    "Short not detected: clip the two leads firmly together and try again.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Corto non rilevato: unisci bene i due puntali e ripeti."
+          }
+        }
+      }
+    },
+    "Sine": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sinusoide"
+          }
+        }
+      }
+    },
+    "Small signal": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Piccolo segnale"
+          }
+        }
+      }
+    },
+    "Square": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quadra"
+          }
+        }
+      }
+    },
+    "Start frequency (Hz)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequenza iniziale (Hz)"
+          }
+        }
+      }
+    },
+    "Step 2 is required: it measures the internal reference resistor using the 1 kΩ calibration resistor. The other steps improve accuracy and can be repeated in any order.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il passo 2 è obbligatorio: misura il resistore di riferimento interno usando il resistore di calibrazione da 1 kΩ. Gli altri passi migliorano la precisione e si possono ripetere in qualsiasi ordine."
+          }
+        }
+      }
+    },
+    "Stop frequency (Hz)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequenza finale (Hz)"
+          }
+        }
+      }
+    },
+    "T/S Parameters": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parametri T/S"
+          }
+        }
+      }
+    },
+    "The audio stream is not running.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il flusso audio non è attivo."
+          }
+        }
+      }
+    },
+    "The input device must have two channels.": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il dispositivo d'ingresso deve avere due canali."
+          }
+        }
+      }
+    },
+    "Thiele-Small Parameters": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Parametri Thiele-Small"
+          }
+        }
+      }
+    },
+    "Triangle": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Triangolare"
+          }
+        }
+      }
+    },
+    "Waveform": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forma d'onda"
+          }
+        }
+      }
+    },
+    "With mass": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Con massa"
+          }
+        }
+      }
+    },
+    "impedance": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "impedenza"
+          }
+        }
+      }
+    },
+    "|Z| (Ω)": {
+      "localizations": {
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "|Z| (Ω)"
+          }
+        }
+      }
+    },
+    "°": {
+      "shouldTranslate": false
+    },
+    "Ω": {
+      "shouldTranslate": false
+    }
+  },
+  "version": "1.0"
+}

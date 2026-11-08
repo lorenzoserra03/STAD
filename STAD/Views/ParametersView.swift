@@ -6,25 +6,25 @@ struct ParametersView: View {
     var body: some View {
         @Bindable var model = model
         Form {
-            Section("Dati dell'altoparlante") {
-                TextField("Re misurata con multimetro (Ω, facoltativa)", value: $model.knownRe, format: .number)
-                TextField("Diametro effettivo del cono (cm)", value: $model.coneDiameterCm, format: .number)
-                TextField("Massa aggiunta (g)", value: $model.addedMassGrams, format: .number)
+            Section("Driver data") {
+                TextField("Re measured with a multimeter (Ω, optional)", value: $model.knownRe, format: .number)
+                TextField("Effective cone diameter (cm)", value: $model.coneDiameterCm, format: .number)
+                TextField("Added mass (g)", value: $model.addedMassGrams, format: .number)
             }
 
             Section {
                 HStack {
-                    Button("Misura in aria libera") { model.measure(.freeAir) }
-                    Button("Misura con massa aggiunta") { model.measure(.addedMass) }
+                    Button("Measure in free air") { model.measure(.freeAir) }
+                    Button("Measure with added mass") { model.measure(.addedMass) }
                         .disabled(model.freeAir.isEmpty)
                 }
                 .disabled(model.isBusy || !model.calibration.isComplete)
             } footer: {
-                Text("Per Vas, Mms, Cms e Bl: misura in aria libera, poi fissa al cono una massa nota (circa la massa mobile) e ripeti.")
+                Text("For Vas, Mms, Cms and Bl: measure in free air, then attach a known mass to the cone (roughly the moving mass) and measure again.")
             }
 
             if let p = model.resonance {
-                Section("Piccolo segnale") {
+                Section("Small signal") {
                     row("Fs", p.fs, "Hz", 2)
                     row("Re", p.re, "Ω", 3)
                     row("Zmax", p.zMax, "Ω", 2)
@@ -35,11 +35,11 @@ struct ParametersView: View {
                     if let le = p.le10k { row("Le @ 10 kHz", le * 1000, "mH", 3) }
                 }
             } else if !model.freeAir.isEmpty {
-                Section { Text("Risonanza non trovata nella curva.").foregroundStyle(.secondary) }
+                Section { Text("No resonance found in the curve.").foregroundStyle(.secondary) }
             }
 
             if let m = model.massParameters {
-                Section("Massa aggiunta") {
+                Section("Added mass") {
                     row("Mms", m.mms * 1000, "g", 2)
                     row("Cms", m.cms * 1000, "mm/N", 3)
                     row("Vas", m.vas * 1000, "L", 2)
@@ -50,12 +50,15 @@ struct ParametersView: View {
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Parametri Thiele-Small")
+        .navigationTitle("Thiele-Small Parameters")
     }
 
+    /// Parameter symbols and units are the same in every language.
     private func row(_ name: String, _ value: Double, _ unit: String, _ digits: Int) -> some View {
-        LabeledContent(name) {
-            Text("\(value, format: .number.precision(.fractionLength(digits))) \(unit)").monospacedDigit()
+        LabeledContent {
+            Text(verbatim: "\(value.formatted(.number.precision(.fractionLength(digits)))) \(unit)").monospacedDigit()
+        } label: {
+            Text(verbatim: name)
         }
     }
 }

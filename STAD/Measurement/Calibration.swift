@@ -102,8 +102,8 @@ nonisolated enum CalibrationError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .resistorNotDetected: "Resistore non rilevato: controlla i collegamenti."
-        case .shortNotDetected: "Corto non rilevato: unisci bene i due puntali e ripeti."
+        case .resistorNotDetected: String(localized: "Resistor not detected: check the connections.")
+        case .shortNotDetected: String(localized: "Short not detected: clip the two leads firmly together and try again.")
         }
     }
 }

@@ -7,72 +7,80 @@ struct CalibrationView: View {
     var body: some View {
         @Bindable var model = model
         Form {
-            Section("Dispositivo") {
-                Picker("Ingresso", selection: $model.inputDevice) {
+            Section("Device") {
+                Picker("Input", selection: $model.inputDevice) {
                     ForEach(model.devices.filter { $0.inputChannels >= 2 }) { Text($0.name).tag(Optional($0)) }
                 }
-                Picker("Uscita", selection: $model.outputDevice) {
+                Picker("Output", selection: $model.outputDevice) {
                     ForEach(model.devices.filter { $0.outputChannels >= 2 }) { Text($0.name).tag(Optional($0)) }
                 }
                 HStack {
-                    Button("Aggiorna") { model.refreshDevices() }
-                    Button("Collega") { model.restartStreaming() }
+                    Button("Refresh") { model.refreshDevices() }
+                    Button("Connect") { model.restartStreaming() }
                 }
             }
 
-            Section("Misura") {
-                TextField("Frequenza iniziale (Hz)", value: $model.settings.startHz, format: .number)
-                TextField("Frequenza finale (Hz)", value: $model.settings.stopHz, format: .number)
-                TextField("Punti per ottava", value: $model.settings.pointsPerOctave, format: .number)
-                LabeledContent("Livello di uscita") {
+            Section("Measurement") {
+                TextField("Start frequency (Hz)", value: $model.settings.startHz, format: .number)
+                TextField("Stop frequency (Hz)", value: $model.settings.stopHz, format: .number)
+                TextField("Points per octave", value: $model.settings.pointsPerOctave, format: .number)
+                LabeledContent("Output level") {
                     Slider(value: $model.settings.amplitude, in: 0.01...1)
                 }
             }
 
             Section {
-                step(1, "Puntali aperti, non collegati a nulla.", done: model.calibration.open != nil) {
+                step(1, "Leads open, not connected to anything.", done: model.calibration.open != nil) {
                     model.calibrateOpen()
                 }
                 HStack {
-                    step(2, "Puntali sul resistore di calibrazione.", done: model.calibration.isComplete) {
+                    step(2, "Leads on the calibration resistor.", done: model.calibration.isComplete) {
                         model.calibrateResistor(ohms: resistorOhms)
                     }
-                    TextField("Ω", value: $resistorOhms, format: .number).frame(width: 70)
-                    Text("Ω")
+                    TextField(value: $resistorOhms, format: .number) { Text(verbatim: "Ω") }.frame(width: 70)
+                    Text(verbatim: "Ω")
                 }
-                step(3, "Puntali in corto tra loro (facoltativo, misura la resistenza dei cavi).",
+                step(3, "Leads shorted together (optional, measures the lead resistance).",
                      done: model.calibration.shortX != 0) {
                     model.calibrateShort()
                 }
             } header: {
-                Text("Calibrazione")
+                Text("Calibration")
             } footer: {
-                Text("Il passo 2 è obbligatorio: misura il resistore di riferimento interno usando il resistore di calibrazione da 1 kΩ. Gli altri passi migliorano la precisione e si possono ripetere in qualsiasi ordine.")
+                Text("Step 2 is required: it measures the internal reference resistor using the 1 kΩ calibration resistor. The other steps improve accuracy and can be repeated in any order.")
             }
             .disabled(model.isBusy)
 
-            Section("Risultato") {
-                LabeledContent("Resistore di riferimento interno") {
-                    Text(model.calibration.referenceOhms.map { String(format: "%.2f Ω", $0) } ?? "—")
+            Section("Result") {
+                LabeledContent("Internal reference resistor") {
+                    Text(verbatim: model.calibration.referenceOhms.map { ohms($0, digits: 2) } ?? "—")
                 }
-                LabeledContent("Resistenza dei puntali") { Text(String(format: "%.3f Ω", model.calibration.leadOhms)) }
-                LabeledContent("Canale del carico") {
-                    Text(model.calibration.loadIsRight.map { $0 ? "Destro" : "Sinistro" } ?? "Automatico")
+                LabeledContent("Lead resistance") { Text(verbatim: ohms(model.calibration.leadOhms, digits: 3)) }
+                LabeledContent("Load channel") {
+                    switch model.calibration.loadIsRight {
+                    case true?: Text("Right")
+                    case false?: Text("Left")
+                    case nil: Text("Automatic")
+                    }
                 }
-                Button("Azzera calibrazione", role: .destructive) { model.calibration = Calibration() }
+                Button("Reset calibration", role: .destructive) { model.calibration = Calibration() }
             }
         }
         .formStyle(.grouped)
-        .navigationTitle("Calibrazione")
+        .navigationTitle("Calibration")
     }
 
-    private func step(_ n: Int, _ text: String, done: Bool, action: @escaping () -> Void) -> some View {
+    private func ohms(_ value: Double, digits: Int) -> String {
+        value.formatted(.number.precision(.fractionLength(digits))) + " Ω"
+    }
+
+    private func step(_ n: Int, _ text: LocalizedStringKey, done: Bool, action: @escaping () -> Void) -> some View {
         HStack {
             Image(systemName: done ? "checkmark.circle.fill" : "\(n).circle")
                 .foregroundStyle(done ? .green : .secondary)
             Text(text)
             Spacer()
-            Button("Esegui", action: action)
+            Button("Run", action: action)
         }
     }
 }

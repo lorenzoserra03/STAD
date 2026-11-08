@@ -8,6 +8,7 @@
     "development": "en",
     "supported": [
       "Base",
+      "it",
     ],
   },
   "files": [
@@ -43,7 +44,7 @@
         "ENABLE_USER_SELECTED_FILES": "readwrite",
         "GENERATE_INFOPLIST_FILE": "YES",
         "INFOPLIST_KEY_NSHumanReadableCopyright": "",
-        "INFOPLIST_KEY_NSMicrophoneUsageDescription": "STAD legge gli ingressi del tester per misurare impedenza e parametri degli altoparlanti.",
+        "INFOPLIST_KEY_NSMicrophoneUsageDescription": "STAD reads the tester inputs to measure loudspeaker impedance and parameters.",
         "LD_RUNPATH_SEARCH_PATHS": [
           "$(inherited)",
           "@executable_path/../Frameworks",

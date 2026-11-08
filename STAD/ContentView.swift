@@ -1,12 +1,18 @@
 import SwiftUI
 
 enum Page: String, CaseIterable, Identifiable {
-    case impedance = "Impedenza"
-    case parameters = "Parametri T/S"
-    case generator = "Generatore"
-    case calibration = "Calibrazione"
+    case impedance, parameters, generator, calibration
 
     var id: Self { self }
+
+    var title: LocalizedStringKey {
+        switch self {
+        case .impedance: "Impedance"
+        case .parameters: "T/S Parameters"
+        case .generator: "Generator"
+        case .calibration: "Calibration"
+        }
+    }
 
     var symbol: String {
         switch self {
@@ -25,7 +31,7 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             List(Page.allCases, selection: $page) { page in
-                Label(page.rawValue, systemImage: page.symbol)
+                Label(page.title, systemImage: page.symbol)
             }
             .navigationSplitViewColumnWidth(min: 170, ideal: 190)
         } detail: {
@@ -49,7 +55,7 @@ struct StatusBar: View {
         HStack(spacing: 12) {
             if model.isBusy {
                 ProgressView(value: model.progress).frame(width: 160)
-                Button("Annulla", action: model.cancel)
+                Button("Cancel", action: model.cancel)
             }
             Text(model.status).foregroundStyle(.secondary)
             if let warning = model.warning {
@@ -57,7 +63,7 @@ struct StatusBar: View {
             }
             Spacer()
             if !model.calibration.isComplete {
-                Label("Non calibrato", systemImage: "exclamationmark.circle").foregroundStyle(.orange)
+                Label("Not calibrated", systemImage: "exclamationmark.circle").foregroundStyle(.orange)
             }
         }
         .font(.callout)

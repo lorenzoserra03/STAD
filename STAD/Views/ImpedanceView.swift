@@ -10,20 +10,20 @@ struct ImpedanceView: View {
             ImpedanceChart(curves: curves)
         }
         .padding()
-        .navigationTitle("Impedenza")
+        .navigationTitle("Impedance")
         .toolbar {
-            Button("Misura", systemImage: "play.fill") { model.measure(.freeAir) }
+            Button("Measure", systemImage: "play.fill") { model.measure(.freeAir) }
                 .disabled(model.isBusy || !model.calibration.isComplete)
-            Button("Esporta .zma", systemImage: "square.and.arrow.up") { exporting = true }
+            Button("Export .zma", systemImage: "square.and.arrow.up") { exporting = true }
                 .disabled(model.freeAir.isEmpty)
         }
         .fileExporter(isPresented: $exporting, document: TextFile(text: ImpedanceExport.zma(model.freeAir)),
-                      contentType: .zma, defaultFilename: "impedenza") { _ in }
+                      contentType: .zma, defaultFilename: String(localized: "impedance")) { _ in }
     }
 
     private var curves: [(String, [ImpedancePoint])] {
-        var result = [("Aria libera", model.freeAir)]
-        if !model.addedMass.isEmpty { result.append(("Con massa", model.addedMass)) }
+        var result = [(String(localized: "Free air"), model.freeAir)]
+        if !model.addedMass.isEmpty { result.append((String(localized: "With mass"), model.addedMass)) }
         return result
     }
 }
@@ -37,20 +37,20 @@ struct ImpedanceChart: View {
                 ForEach(curves, id: \.0) { name, points in
                     ForEach(points) { p in
                         LineMark(x: .value("Hz", p.frequency), y: .value("Ω", p.magnitude))
-                            .foregroundStyle(by: .value("Curva", name))
+                            .foregroundStyle(by: .value("Curve", name))
                             .interpolationMethod(.monotone)
                     }
                 }
             }
             .chartXScale(domain: 10...20_000, type: .log)
             .chartXAxis { frequencyAxis }
-            .chartYAxisLabel("|Z| (Ω)")
+            .chartYAxisLabel(String(localized: "|Z| (Ω)"))
 
             Chart {
                 ForEach(curves, id: \.0) { name, points in
                     ForEach(points) { p in
                         LineMark(x: .value("Hz", p.frequency), y: .value("°", p.phase))
-                            .foregroundStyle(by: .value("Curva", name))
+                            .foregroundStyle(by: .value("Curve", name))
                             .interpolationMethod(.monotone)
                     }
                 }
@@ -58,13 +58,13 @@ struct ImpedanceChart: View {
             .chartXScale(domain: 10...20_000, type: .log)
             .chartYScale(domain: -90...90)
             .chartXAxis { frequencyAxis }
-            .chartYAxisLabel("Fase (°)")
+            .chartYAxisLabel(String(localized: "Phase (°)"))
             .frame(maxHeight: 220)
         }
         .overlay {
             if curves.allSatisfy({ $0.1.isEmpty }) {
-                ContentUnavailableView("Nessuna misura", systemImage: "waveform.path.ecg",
-                                       description: Text("Collega l'altoparlante ai puntali e premi Misura."))
+                ContentUnavailableView("No measurement", systemImage: "waveform.path.ecg",
+                                       description: Text("Connect the speaker to the leads and press Measure."))
             }
         }
     }
@@ -74,7 +74,7 @@ struct ImpedanceChart: View {
             AxisGridLine()
             AxisValueLabel {
                 if let f = value.as(Double.self) {
-                    Text(f >= 1000 ? "\(Int(f / 1000))k" : "\(Int(f))")
+                    Text(verbatim: f >= 1000 ? "\(Int(f / 1000))k" : "\(Int(f))")
                 }
             }
         }

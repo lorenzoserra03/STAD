@@ -9,10 +9,10 @@ nonisolated enum AudioIOError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .noAudioUnit: "Unità audio non disponibile."
-        case .coreAudio(let status): "Errore Core Audio \(status)."
-        case .needsStereoInput: "Il dispositivo d'ingresso deve avere due canali."
-        case .notRunning: "Il flusso audio non è attivo."
+        case .noAudioUnit: String(localized: "Audio unit not available.")
+        case .coreAudio(let status): String(localized: "Core Audio error \(status).")
+        case .needsStereoInput: String(localized: "The input device must have two channels.")
+        case .notRunning: String(localized: "The audio stream is not running.")
         }
     }
 }

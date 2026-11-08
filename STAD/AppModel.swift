@@ -22,7 +22,7 @@ final class AppModel {
     var coneDiameterCm = 0.0
     var addedMassGrams = 0.0
 
-    var status = "Pronto"
+    var status = String(localized: "Ready")
     var warning: String?
     var isBusy = false
     var progress = 0.0
@@ -71,13 +71,14 @@ final class AppModel {
 
     func restartStreaming() {
         io.stop()
-        do { try ensureStreaming(); status = "Dispositivo collegato" } catch { status = error.localizedDescription }
+        do { try ensureStreaming(); status = String(localized: "Device connected") } catch { status = error.localizedDescription }
     }
 
     // MARK: Measurements
 
     func measure(_ target: Target) {
-        runSweep(target == .freeAir ? "Misura impedenza…" : "Misura con massa aggiunta…",
+        runSweep(target == .freeAir ? String(localized: "Measuring impedance…")
+                                     : String(localized: "Measuring with added mass…"),
                  refineResonance: true) { [self] sweep in
             guard let curve = calibration.impedance(sweep) else { throw TesterError.notCalibrated }
             switch target {
@@ -88,15 +89,15 @@ final class AppModel {
     }
 
     func calibrateOpen() {
-        runSweep("Calibrazione: puntali aperti…") { [self] in calibration.applyOpen($0) }
+        runSweep(String(localized: "Calibration: open leads…")) { [self] in calibration.applyOpen($0) }
     }
 
     func calibrateShort() {
-        runSweep("Calibrazione: puntali in corto…") { [self] in try calibration.applyShort($0) }
+        runSweep(String(localized: "Calibration: shorted leads…")) { [self] in try calibration.applyShort($0) }
     }
 
     func calibrateResistor(ohms: Double) {
-        runSweep("Calibrazione: resistore \(ohms) Ω…") { [self] in try calibration.applyResistor($0, ohms: ohms) }
+        runSweep(String(localized: "Calibration: \(ohms.formatted()) Ω resistor…")) { [self] in try calibration.applyResistor($0, ohms: ohms) }
     }
 
     func cancel() {
@@ -121,7 +122,7 @@ final class AppModel {
                 }
                 if refineResonance, let curve = calibration.impedance(sweep),
                    let extra = Sweep.refinement(around: curve, existing: frequencies) {
-                    status = "Affinamento intorno alla risonanza…"
+                    status = String(localized: "Refining around resonance…")
                     progress = 0
                     sweep += try await Sweep.run(io: io, frequencies: extra, amplitude: amplitude) { value in
                         await MainActor.run { self.progress = value }
@@ -129,12 +130,12 @@ final class AppModel {
                     sweep.sort { $0.frequency < $1.frequency }
                 }
                 if sweep.contains(where: { max($0.leftLevel, $0.rightLevel) > 0.95 }) {
-                    warning = "Ingresso vicino alla saturazione: riduci il livello."
+                    warning = String(localized: "Input close to clipping: lower the level.")
                 }
                 try apply(sweep)
-                status = "Completato"
+                status = String(localized: "Done")
             } catch is CancellationError {
-                status = "Annullato"
+                status = String(localized: "Cancelled")
             } catch {
                 status = error.localizedDescription
             }
@@ -166,8 +167,8 @@ nonisolated enum TesterError: LocalizedError {
 
     var errorDescription: String? {
         switch self {
-        case .notFound: "DATS non trovato: collegalo via USB e premi Aggiorna."
-        case .notCalibrated: "Calibra prima con il resistore da 1 kΩ (pagina Calibrazione)."
+        case .notFound: String(localized: "DATS not found: connect it via USB and press Refresh.")
+        case .notCalibrated: String(localized: "Calibrate first with the 1 kΩ resistor (Calibration page).")
         }
     }
 }
